@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بورتوفوليو شفره</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    
+    body {
+      background-color: #1a1a1a; /* خلفية داكنة */
+      color: #d4af37; /* لون ذهبي أكثر نعومة */
+    }
+    
+    .hero {
+      background-color: #333333; /* لون داكن للقسم الرئيسي */
+      color: #d4af37;
+      padding: 60px 20px;
+      border-bottom: 2px solid #d4af37; /* حد سفلي */
+    }
+    
+    .btn {
+      background-color: #d4af37;
+      color: #333333;
+      padding: 10px 20px;
+      border-radius: 5px; /* حواف دائرية */
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    
+    .about, .portfolio, .contact {
+      padding: 40px 20px;
+      background-color: #2a2a2a; /* لون خلفية أغمق للأقسام */
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+    
+    h2 {
+      margin-bottom: 20px;
+      color: #f1c40f; /* لون ذهبي أهدأ */
+    }
+    
+    .gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .gallery-item {
+      flex: 1 1 300px;
+      margin: 10px;
+      background-color: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    form input, form textarea {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #d4af37;
+      background-color: #333333;
+      color: #d4af37;
+      border-radius: 5px;
+    }
+    
+    form button {
+      background-color: #d4af37;
+      color: #333333;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    
+    form button:hover {
+      background-color: #b18f2e; /* تأثير عند التمرير */
+    }
+
+    /* تنسيق نافذة الترحيب */
+    .popup {
+      display: none; /* إخفاء النافذة في البداية */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="portfolio">
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <p>مرحباً بكم في موقع شفره!</p>
+        <button onclick="closePopup()">إغلاق</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <h2>عن شفره</h2>
+    <p>شفره هو مطور ويب ذو خبرة طويلة في تصميم وتطوير المواقع.</p>
+  </section>
+
+  <section id="portfolio" class="portfolio">
+    <h2>أعمالي</h2>
+    <div class="gallery">
+      <!-- إضافة فيديو يوتيوب الأول -->
+      <div class="gallery-item">
+        <iframe width="300" height="200"
+                src="https://www.youtube.com/embed/aRRTF3UHcLE" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <!-- إضافة فيديو يوتيوب الثاني -->
+      <div class="gallery-item">
+        <iframe width="300" height="200"
+                src="https://www.youtube.com/embed/y0NwwSEID0c" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>تواصل معنا</h2>
+    <form>
+      <input type="text" placeholder="اسمك">
+      <input type="email" placeholder="بريدك الإلكتروني">
+      <textarea placeholder="رسالتك"></textarea>
+      <button type="submit">إرسال</button>
+    </form>
+  </section>
+
+  <script>
+    // JavaScript للتمرير السلس
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // عرض نافذة الترحيب عند فتح الموقع
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'flex';
+    };
+    
+    // دالة لإغلاق النافذة
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
